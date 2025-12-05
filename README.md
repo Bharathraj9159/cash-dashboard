@@ -1,6 +1,6 @@
 # CashFlow - Cash Management Dashboard
 
-CHECH -->  https://cash-dashboard-1.netlify.app/
+Check Here-->  https://cash-dashboard-1.netlify.app/
 
 A modern, professional finance insights platform built with React and Tailwind CSS. The dashboard helps finance teams understand daily cash risks, alerts, and recommendations with an intuitive, responsive interface.
 
