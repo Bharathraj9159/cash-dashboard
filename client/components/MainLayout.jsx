@@ -31,12 +31,12 @@ export default function MainLayout({
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 flex">
       {/* Sidebar */}
       <Sidebar />
 
       {/* Main Content Area */}
-      <div className="md:ml-64 flex flex-col h-screen">
+      <div className="flex flex-col flex-1 h-screen">
         {/* Top Header - Only on Dashboard (home) */}
         {!topBar && (
           <header className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm">

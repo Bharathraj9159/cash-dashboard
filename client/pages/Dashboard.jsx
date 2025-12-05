@@ -1,5 +1,6 @@
 import MainLayout from '../components/MainLayout';
 import QuadrantCard from '../components/QuadrantCard';
+import StatCard from '../components/StatCard';
 import { DollarSign, Settings, CreditCard, Lock } from 'lucide-react';
 
 export default function Dashboard() {
@@ -54,30 +55,38 @@ export default function Dashboard() {
         </div>
 
         {/* Status Bar */}
-        <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div className="p-4 bg-white rounded-lg border border-slate-200">
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">
-              Total Alerts
-            </p>
-            <p className="text-2xl font-bold text-slate-900">12</p>
-          </div>
-          <div className="p-4 bg-white rounded-lg border border-slate-200">
-            <p className="text-xs font-semibold text-red-600 uppercase tracking-wide mb-1">
-              Critical (P1)
-            </p>
-            <p className="text-2xl font-bold text-red-600">6</p>
-          </div>
-          <div className="p-4 bg-white rounded-lg border border-slate-200">
-            <p className="text-xs font-semibold text-amber-600 uppercase tracking-wide mb-1">
-              Warning (P2)
-            </p>
-            <p className="text-2xl font-bold text-amber-600">6</p>
-          </div>
-          <div className="p-4 bg-white rounded-lg border border-slate-200">
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">
-              Last Updated
-            </p>
-            <p className="text-lg font-semibold text-slate-900">Just now</p>
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-4 gap-6">
+          <StatCard
+            label="Total Alerts"
+            value={12}
+            variant="total"
+          />
+          <StatCard
+            label="Critical (P1)"
+            value={6}
+            variant="critical"
+            animate={true}
+          />
+          <StatCard
+            label="Warning (P2)"
+            value={6}
+            variant="warning"
+          />
+          <div className="group">
+            <div className="relative p-6 bg-gradient-to-br from-slate-50 to-slate-50/50 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 rounded-full -mr-16 -mt-16 opacity-20 group-hover:scale-110 transition-transform duration-300 bg-gradient-to-br from-slate-400 to-slate-300" />
+              <div className="relative z-10">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-1">
+                    <p className="text-xs font-semibold uppercase tracking-wide mb-3 text-slate-700">
+                      Last Updated
+                    </p>
+                  </div>
+                </div>
+                <p className="text-lg font-semibold text-slate-900">Just now</p>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-slate-400 to-transparent" />
+            </div>
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ import MainLayout from "../components/MainLayout";
 import TopBar from "../components/TopBar";
 import AlertsList from "../components/AlertsList";
 import AlertDetails from "../components/AlertDetails";
+import StatCard from "../components/StatCard";
 
 // ⬇️ NEW: import your dashboardData
 import dashboardData from "../components/dashboardData"; // <-- change path if needed
@@ -84,31 +85,23 @@ export default function QuadrantDetail() {
       onAssistantClose={() => setIsAssistantOpen(false)}
     >
       {/* Stats Section */}
-      <div className="mb-8 flex flex-wrap gap-4">
-        <div className="p-4 bg-white rounded-lg border border-slate-200">
-          <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">
-            Total Alerts
-          </p>
-          <p className="text-2xl font-bold text-slate-900">
-            {currentQuadrant.alerts.length}
-          </p>
-        </div>
-        <div className="p-4 bg-white rounded-lg border border-slate-200">
-          <p className="text-xs font-semibold text-red-600 uppercase tracking-wide mb-1">
-            Critical (P1)
-          </p>
-          <p className="text-2xl font-bold text-red-600">
-            {currentQuadrant.alerts.filter((a) => a.priority === "P1").length}
-          </p>
-        </div>
-        <div className="p-4 bg-white rounded-lg border border-slate-200">
-          <p className="text-xs font-semibold text-amber-600 uppercase tracking-wide mb-1">
-            Warning (P2)
-          </p>
-          <p className="text-2xl font-bold text-amber-600">
-            {currentQuadrant.alerts.filter((a) => a.priority === "P2").length}
-          </p>
-        </div>
+      <div className="mb-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <StatCard
+          label="Total Alerts"
+          value={currentQuadrant.alerts.length}
+          variant="total"
+        />
+        <StatCard
+          label="Critical (P1)"
+          value={currentQuadrant.alerts.filter((a) => a.priority === "P1").length}
+          variant="critical"
+          animate={true}
+        />
+        <StatCard
+          label="Warning (P2)"
+          value={currentQuadrant.alerts.filter((a) => a.priority === "P2").length}
+          variant="warning"
+        />
       </div>
 
       {/* Two-Column Layout */}

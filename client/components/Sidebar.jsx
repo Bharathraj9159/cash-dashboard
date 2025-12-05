@@ -56,23 +56,23 @@ export default function Sidebar() {
       {/* Mobile Menu Toggle */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed md:hidden top-4 right-3 z-50 p-2 bg-white rounded-lg border border-slate-200 shadow-md hover:bg-slate-50 transition-colors"
+        className="fixed md:hidden top-4 right-4 z-50 p-2 bg-white rounded-lg border border-slate-200 shadow-md hover:bg-slate-50 transition-colors"
         aria-label="Toggle sidebar"
       >
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
-      {/* Overlay for Mobile */}
+      {/* Overlay for Mobile - Full screen blocking */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 md:hidden z-30"
+          className="fixed inset-0 bg-black bg-opacity-50 md:hidden z-40"
           onClick={() => setIsOpen(false)}
         />
       )}
 
       {/* Sidebar */}
       <aside
-        className={`fixed left-0 top-0 h-screen w-64 bg-white border-r border-slate-200 shadow-lg transform transition-transform duration-300 ease-in-out z-40 md:z-20 md:translate-x-0 flex flex-col ${
+        className={`fixed left-0 top-0 h-screen w-64 bg-white border-r border-slate-200 shadow-xl transform transition-transform duration-300 ease-in-out z-50 md:z-0 md:relative md:translate-x-0 flex flex-col ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -140,9 +140,6 @@ export default function Sidebar() {
           </Link>
         </div>
       </aside>
-
-      {/* Spacer for desktop to push content right */}
-      <div className="hidden md:block w-64 flex-shrink-0" />
     </>
   );
 }
